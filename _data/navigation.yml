@@ -1,22 +1,26 @@
-# main links links
 main:
-  - title: "About Me"
-    url: "/#about-me"
-
+  - title: "About"
+    url: "/en/#about-me"
   - title: "News"
-    url: "/#-news"
-
-  - title: "Publications"
-    url: "/#-publications"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
-  - title: "Educations"
-    url: "/#-educations"
-
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
-    url: "/#-internships"
+    url: "/en/#news"
+  - title: "Projects"
+    url: "/en/#publications"
+  - title: "Education"
+    url: "/en/#education"
+  - title: "Learning"
+    url: "/en/#experience"
+  - title: "Skills"
+    url: "/en/#skills"
+main_zh:
+  - title: "关于我"
+    url: "/#about-me"
+  - title: "动态"
+    url: "/#news"
+  - title: "项目实践"
+    url: "/#publications"
+  - title: "教育背景"
+    url: "/#education"
+  - title: "学习积累"
+    url: "/#experience"
+  - title: "技术背景"
+    url: "/#skills"

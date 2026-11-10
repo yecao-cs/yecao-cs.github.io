@@ -2,34 +2,67 @@
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
 
+{% if page.lang == "zh" %}
+  {% assign author_name = author.name_zh | default: author.name %}
+  {% assign author_bio = author.bio_zh | default: author.bio %}
+  {% assign author_location = author.location_zh | default: author.location %}
+  {% assign author_employer = author.employer_zh | default: author.employer %}
+  {% assign sidebar_description = page.sidebar_description %}
+  {% assign email_label = "邮箱" %}
+  {% assign wechat_label = "微信" %}
+  {% assign scholar_label = "谷歌学术" %}
+  {% assign pending_label = "待填写" %}
+{% else %}
+  {% assign author_name = author.name %}
+  {% assign author_bio = author.bio %}
+  {% assign author_location = author.location %}
+  {% assign author_employer = author.employer %}
+  {% assign sidebar_description = page.sidebar_description | default: site.description %}
+  {% assign email_label = "Email" %}
+  {% assign wechat_label = "WeChat" %}
+  {% assign scholar_label = "Google Scholar" %}
+  {% assign pending_label = "to be filled" %}
+{% endif %}
+
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
-  <div class="author__avatar">
-    <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
-  </div>
+  {% if author.avatar %}
+    <div class="author__avatar">
+      <img src="{{ author.avatar | relative_url }}" class="author__avatar" alt="{{ author_name }}">
+    </div>
+  {% endif %}
 
   <div class="author__content">
-    <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    <h3 class="author__name">{{ author_name }}</h3>
+    {% if author_bio %}<p class="author__bio">{{ author_bio }}</p>{% endif %}
   </div>
 
   <div class="author__urls-wrapper">
     <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
     <ul class="author__urls social-icons">
-      {% if site.description %}
-        <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
+      {% if sidebar_description %}
+        <li><div style="white-space: normal; margin-bottom: 1em;">{{ sidebar_description }}</div></li>
       {% endif %}
-      {% if author.location %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
+      {% if author_location %}
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author_location }}</li>
       {% endif %}
-      {% if author.employer %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.employer }}</li>
+      {% if author_employer %}
+        <li><i class="fa fa-fw fa-university" aria-hidden="true"></i> {{ author_employer }}</li>
       {% endif %}
       {% if author.uri %}
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
       {% endif %}
       {% if author.email %}
-        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ email_label }}</a></li>
+      {% endif %}
+      {% if author.wechat %}
+        <li><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> {{ wechat_label }}: {{ author.wechat }}</li>
+      {% endif %}
+      {% if site.show_placeholders %}
+        {% unless author.email %}<li><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ email_label }}（{{ pending_label }}）</li>{% endunless %}
+        {% unless author.wechat %}<li><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> {{ wechat_label }}（{{ pending_label }}）</li>{% endunless %}
+        {% unless author.github %}<li><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github（{{ pending_label }}）</li>{% endunless %}
+        {% unless author.googlescholar %}<li><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> {{ scholar_label }}（{{ pending_label }}）</li>{% endunless %}
       {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
@@ -104,7 +137,7 @@
         <li><a href="https://vine.co/u/{{ author.vine }}"><i class="fab fa-fw fa-vine" aria-hidden="true"></i> Vine</a></li>
       {% endif %}
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> {{ scholar_label }}</a></li>
       {% endif %}
       {% if author.pubmed %}
         <li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed-square ai-fw"></i> PubMed</a></li>
@@ -125,6 +158,9 @@
       {% endif %}
       {% if author.email %}
         <a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+      {% endif %}
+      {% if author.wechat %}
+        <span title="{{ wechat_label }}: {{ author.wechat }}"><i class="fab fa-fw fa-weixin" aria-hidden="true"></i> <small>{{ author.wechat }}</small></span>
       {% endif %}
       {% if author.keybase %}
         <a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i></a>

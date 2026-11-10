@@ -1,0 +1,14 @@
+{
+  "name": "academic-homepage-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "node tools/preview.mjs",
+    "build:preview": "node tools/preview.mjs --build"
+  },
+  "devDependencies": {
+    "liquidjs": "^10.21.0",
+    "yaml": "^2.8.0",
+    "markdown-it": "^14.1.0"
+  }
+}

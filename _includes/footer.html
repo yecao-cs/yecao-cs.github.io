@@ -1,0 +1,13 @@
+<div class="page__footer">
+  <footer role="contentinfo">
+    {% if page.lang == "zh" %}
+      <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author.name_zh | default: site.author.name | escape }}。保留所有权利。</div>
+      <div class="page__footer-note">除非另有说明，本站内容仅用于学术交流与个人展示。</div>
+      <div class="page__footer-credit">页面基于 <a href="https://github.com/RayeRen/acad-homepage.github.io" rel="noopener noreferrer">@RayeRen</a> 的 AcadHomepage 模板构建。</div>
+    {% else %}
+      <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author.name | escape }}. All rights reserved.</div>
+      <div class="page__footer-note">Unless otherwise noted, this website is intended for academic communication and personal presentation.</div>
+      <div class="page__footer-credit">Built with the AcadHomepage template by <a href="https://github.com/RayeRen/acad-homepage.github.io" rel="noopener noreferrer">@RayeRen</a>.</div>
+    {% endif %}
+  </footer>
+</div>

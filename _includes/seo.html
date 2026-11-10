@@ -1,14 +1,16 @@
 <!-- begin SEO -->
 {% if site.url %}
-  {% assign seo_url = site.url %}
+  {% assign seo_url = site.url | append: site.baseurl %}
 {% endif %}
-{% assign seo_url = seo_url | default: site.github.url %}
+{% unless seo_url %}
+  {% assign seo_url = site.github.url %}
+{% endunless %}
 
 {% if site.url %}
-  {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
+  {% assign canonical_url = page.url | replace: "index.html", "" | absolute_url %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+<title>{{ site.title }} - {% if page.lang == 'zh' %}个人主页{% else %}Homepage{% endif %}</title>
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,7 +31,7 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="{% if page.lang == 'zh' %}zh_CN{% else %}en_US{% endif %}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ site.title }}">
 

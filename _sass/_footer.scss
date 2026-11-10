@@ -4,17 +4,13 @@
 
 .page__footer {
   @include clearfix;
-  float: left;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
   clear: both;
-  /* sticky footer fix start */
-  position: absolute;
-  bottom: 0em;
-  height: auto;
-  /* sticky footer fix end */
-  margin-top: 3em;
+  float: none;
+  margin-top: 0;
+  position: static;
   color: mix(#fff, $gray, 25%);
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
@@ -27,9 +23,10 @@
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 0;
     max-width: 100%;
-    padding: 0 1em 2em;
+    padding: 1.5em 1em;
+    text-align: center;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -56,6 +53,13 @@
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
+}
+
+.page__footer-note,
+.page__footer-credit {
+  font-family: $global-font-family;
+  font-size: $type-size-7;
+  margin-top: 0.35em;
 }
 
 .page__footer-follow {

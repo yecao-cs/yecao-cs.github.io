@@ -1,112 +1,118 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
-# Site Settings
-title                    : "Lorem ipsum"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
-repository               : "yecao-cs/yecao-cs.github.io"
-google_scholar_stats_use_cdn : true
-
-# google analytics
-google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
-
-# SEO Related
-google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
-
-# Site Author
+# 个人资料填写 author；中文正文在 _pages/about.md，英文正文在 _pages/about-en.md。
+# 不填的联系方式保持空值，不要填写空字符串引号。
+# 浏览器标签上的姓名；填写英文姓名即可。
+title: Ye Cao
+description: ''
+repository: yecao-cs/yecao-cs.github.io
+url: https://yecao-cs.github.io
+# 组织主页位于域名根目录，保持空字符串。
+baseurl: ''
+lang: zh-CN
+google_scholar_stats_enabled: false
+google_scholar_stats_use_cdn: true
+google_analytics_id: null
+google_site_verification: null
+bing_site_verification: null
+baidu_site_verification: null
 author:
-  name             : "Lorem ipsum"
-  avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
-  employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "Lorem@ipsum.com"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
-  github           : # e.g., "github username"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           :
-  linkedin         : # e.g., "linkedin username"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
-
-
-# Reading Files
+  # 英文姓名 / 中文姓名（侧栏、页脚）。
+  name: Ye Cao
+  name_zh: 曹烨
+  # 原版无头像；需要时放进 images/，例如 /images/avatar.jpg。
+  avatar: null
+  # 英文研究方向、所在地、学校名称。中文对应字段在 author 下方。
+  bio: 'Large Language Model · Recommender System · Generative AI'
+  location: 'Chengdu, China'
+  employer: 'UESTC'
+  pubmed: null
+  # Scholar 填完整 URL；email 填邮箱。不填写的项目保留 null。
+  googlescholar: null
+  email: caoye6233@gmail.com
+  researchgate: null
+  uri: null
+  bitbucket: null
+  codepen: null
+  dribbble: null
+  flickr: null
+  facebook: null
+  foursquare: null
+  # 仅填个人 GitHub 用户名；留 null 时不生成个人账号链接。
+  github: zzsky233
+  google_plus: null
+  keybase: null
+  instagram: null
+  impactstory: null
+  lastfm: null
+  linkedin: null
+  dblp: null
+  orcid: null
+  pinterest: null
+  soundcloud: null
+  stackoverflow: null
+  steam: null
+  tumblr: null
+  twitter: null
+  vine: null
+  weibo: null
+  xing: null
+  youtube: null
+  wikipedia: null
+  # 中文研究方向、所在地、学校名称；正文还需在两份 Markdown 中填写。
+  bio_zh: '大语言模型 · 推荐系统 · 生成式AI'
+  location_zh: '成都'
+  employer_zh: '电子科技大学'
+  wechat: null
 include:
-  - .htaccess
-  - _pages
-  - files
+- .htaccess
+- _pages
+- files
 exclude:
-  - docs
-  - google_scholar_crawler
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - .github
-  - CHANGELOG
-  - Capfile
-  - Gemfile
-  - Gruntfile.js
-  - LICENSE
-  - README
-  - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - config
-  - gulpfile.js
-  - log
-  - node_modules
-  - package.json
-  - tmp
-  - vendor
+- README.md
+- README.upstream.md
+- UPSTREAM.md
+- docs
+- tools
+- .preview
+- package-lock.json
+- google_scholar_crawler
+- '*.sublime-project'
+- '*.sublime-workspace'
+- .asset-cache
+- .bundle
+- .jekyll-assets-cache
+- .sass-cache
+- .github
+- CHANGELOG
+- Capfile
+- Gemfile
+- Gruntfile.js
+- LICENSE
+- README
+- Rakefile
+- assets/js/_main.js
+- assets/js/plugins
+- assets/js/vendor
+- config
+- gulpfile.js
+- log
+- node_modules
+- package.json
+- tmp
+- vendor
+- design-qa.md
 keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-
-# Conversion
+- .git
+- .svn
+encoding: utf-8
+markdown_ext: markdown,mkdown,mkdn,mkd,md
 markdown: kramdown
 highlighter: rouge
 lsi: false
-excerpt_separator: "\n\n"
+excerpt_separator: '
+
+
+  '
 incremental: false
-
-
-# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -116,48 +122,33 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-
-# Defaults
 defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
-      author_profile: true
-
-
-# Sass/SCSS
+- scope:
+    path: ''
+    type: pages
+  values:
+    layout: default
+    author_profile: true
 sass:
   sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-
-# Outputting
+  style: compressed
 permalink: /:categories/:title/
-timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
-# Plugins
+timezone: Asia/Shanghai
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-redirect-from
-# mimic GitHub Pages with --safe
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-gist
+- jekyll-feed
+- jekyll-redirect-from
 whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-
-
-# HTML Compression
-# - http://jch.penibelst.de/
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-gist
+- jekyll-feed
+- jemoji
 compress_html:
   clippings: all
   ignore:
     envs: development
+# 仅控制侧栏未填写联系方式的提示；正文不再重复联系方式。
+show_placeholders: false

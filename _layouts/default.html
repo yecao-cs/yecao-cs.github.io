@@ -1,9 +1,5 @@
----
-layout: compress
----
-
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="{{ page.lang | default: 'en' }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
@@ -27,6 +23,7 @@ layout: compress
       </article>
     </div>
 
+    {% include footer.html %}
     {% include scripts.html %}
 
   </body>

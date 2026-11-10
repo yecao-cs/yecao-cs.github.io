@@ -1,72 +1,54 @@
+# 学术主页：李一博原版结构
 
-<h1 align="center">
-AcadHomepage
-</h1>
+本版直接采用李一博公开 MIT 仓库的 AcadHomepage 布局、导航、侧栏、字体、脚本和响应式样式。
+参考页面：https://leeibo.github.io/zh/
+当前内容已根据用户确认的信息与 GitHub 公开简介填写，身份为电子科技大学硕士研究生（2027 年入学）。教育背景按你确认的专业填写，本科院校仅在教育背景显示。
 
-<div align="center">
+## 填写位置
 
-[![](https://img.shields.io/github/stars/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/forks/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/issues/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [中文文档](./docs/README-zh.md) 
-</div>
+逐项填写说明：[docs/PERSONALIZE-zh.md](docs/PERSONALIZE-zh.md)。
 
-<p align="center">A Modern and Responsive Academic Personal Homepage</p>
+| 内容 | 文件 |
+| --- | --- |
+| 中英文姓名、方向、学校、所在地、联系方式 | `_config.yml` 中的 `author` |
+| 中文简介、动态、项目实践、教育、学习积累、技术背景 | `_pages/about.md` |
+| 英文正文 | `_pages/about-en.md` |
+| 中英文导航及锚点 | `_data/navigation.yml` |
 
-<p align="center">
-    <br>
-    <img src="docs/screenshot.png" width="100%"/>
-    <br>
-</p>
+`author.email` 填邮箱，`github` 填用户名，`googlescholar` 填完整链接，`wechat` 填微信号。
+正文不再重复联系方式，统一在侧栏显示。项目与实践暂时留空；后续可按实际进展自行添加。
+未填联系方式的提示已通过 `show_placeholders: false` 隐藏。姓名在正文中读取配置，其他正文内容需分别维护中英文。资料来源见 `docs/PROFILE-SOURCES-zh.md`。
+原站不显示头像，本版也默认不显示；如需头像，可在 `author.avatar` 填本地图片路径。
 
-Some examples:
-- [Demo Page](https://rayeren.github.io/acad-homepage.github.io/)
-- [Personal Homepage of the author](https://rayeren.github.io/)
+本版正文直接写 Markdown，与参考站相同；上一版的 `_data/homepage.yml` 已存入 `docs/previous-design/`，不再参与页面生成。
 
-## Key Features
-- **Automatically update google scholar citations**: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
-- **Support Google analytics**: you can trace the traffics of your homepage by easy configuration.
-- **Responsive**: this homepage automatically adjust for different screen sizes and viewports.
-- **Beautiful and Simple Design**: this homepage is beautiful and simple, which is very suitable for academic personal homepage.
-- **SEO**: search Engine Optimization (SEO) helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
+## 本地预览
 
-## Quick Start
+```powershell
+cd E:\skyblog\academic-homepage
+npm install
+npm run preview
+```
 
-1. Fork this REPO and rename to `USERNAME.github.io`, where `USERNAME` is your github USERNAME.
-1. Configure the google scholar citation crawler:
-    1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
-    1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
-    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. This github action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. When you update your main branch, this action will be triggered. This action will also be trigger 08:00 UTC everyday.
-1. Generate favicon using [favicon-generator](https://redketchup.io/favicon-generator) and download all generated files to `REPO/images`.
-1. Modify the configuration of your homepage `_config.yml`:
-    1. `title`: the title of your homepage
-    1. `description`: the description of your homepage
-    1. `repository`: USER_NAME/REPO_NAME  
-    1. `google_analytics_id` (optional): google analytics ID
-    1. SEO Related keys (optional): get these keys from search engine consoles (e.g. Google, Bing and Baidu) and paste here.
-    1. `author`: the author information of this homepage, including some other websites, emails, city and univeristy.
-    1. More configuration details are described in the comments.
-1. Add your homepage content in `_pages/about.md`.
-    1. You can use html+markdown syntax just same as jekyll.
-    1. You can use a `<span>` tag with class `show_paper_citations` and attribute `data` to display the citations of your paper. Set the data to the google scholar paper ID. For
-        ```html
-        <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span>
-        ``` 
-        > Q: How to get the google scholar paper ID?   
-        > A: Enter your google scholar homepage and click the paper name. Then you can see the paper ID from `citation_for_view=XXXX`, where `XXXX` is the required paper ID.
-1. Your page will be published at `https://USERNAME.github.io`.
+打开 http://127.0.0.1:4322/ ，顶部 EN 可切换到 /en/。
+在 `E:\skyblog` 也可执行 `npm run preview:academic`。
+运行 `npm run build:preview` 可生成 `.preview/index.html` 及配套资源，直接打开即可查看。
+预览使用正式 Liquid 布局与 Markdown 正文，完整 Jekyll 构建仍以 GitHub Pages 为准。
 
-## Debug Locally
+## 发布
 
-1. Clone your REPO to local using `git clone`.
-1. Install Jekyll building environment, including `Ruby`, `RubyGems`, `GCC` and `Make` following [the installation guide](https://jekyllrb.com/docs/installation/#requirements).
-1. Run `bash run_server.sh` to start Jekyll livereload server.
-1. Open http://127.0.0.1:4000 in your browser.
-1. If you change the source code of the website, the livereload server will automatically refresh.
-1. When you finish the modification of your homepage, `commit` your changings and `push` to your remote REPO using `git` command.
+仅同步 `academic-homepage` 文件夹内的源码到组织网站仓库。
+已配置仓库 `yecao-cs/yecao-cs.github.io` 和站点地址 `https://yecao-cs.github.io`。本地分支 `codex/academic-homepage` 基于远程 `main`，发布时将当前分支推送到远程 `main`。后续更新的发布步骤见 [docs/DEPLOYMENT-zh.md](docs/DEPLOYMENT-zh.md)。
+中文为根地址，英文为 /en/，/zh/ 是兼容的中文入口。
+原博客继续独立存放于 `E:\skyblog\blog`。
 
-# Acknowledges
+## 许可和样式来源
 
-- AcadHomepage incorporates Font Awesome, which is distributed under the terms of the SIL OFL 1.1 and MIT License.
-- AcadHomepage is influenced by the github repo [mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes), which is distributed under the MIT License.
-- AcadHomepage is influenced by the github repo [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io), which is distributed under the MIT License.
+- `LICENSE`：保留上游 MIT 许可。
+- `UPSTREAM.md`：源站提交、样式哈希和本地调整记录。
+- `assets/css/reference-main.css`：直接保存的源站已发布样式，不加载上一版的自定义皮肤。
+- `design-qa.md`：本版对照检查结果。
+- `docs/previous-design/`：上一版自定义布局的备份，不会发布。
+
+原模板：https://github.com/RayeRen/acad-homepage.github.io
+参考站源码：https://github.com/leeibo/leeibo.github.io

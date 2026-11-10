@@ -1,3 +1,16 @@
 _site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+node_modules/
+.preview/
+*.log
 push.sh
 .DS_Store
+
+# Local design history and discussion records
+design-qa.md
+docs/previous-design/
+docs/PROJECT-CONTEXT-zh.md
+docs/DESIGN-2026-11-10.md
+docs/MIGRATION-2026-11-10.md
